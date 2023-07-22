@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
       vb.cpus = 1
     end
     #Lembra de comentar a linha abaixo quando for subir pela primeira vez
-    #ubuntu.vm.provision "shell", path: "/provision/provision_ubuntu.sh" 
+    ubuntu.vm.provision "shell", path: "provision/provision_ubuntu.sh" 
   
   end
 
@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
       vb.cpus = 1
     end
     #Lembra de comentar a linha abaixo quando for subir pela primeira vez
-    #debian.vm.provision "shell", path: "provision/provision_debian.sh"
+    debian.vm.provision "shell", path: "provision/provision_debian.sh"
       
   end
 
