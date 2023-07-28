@@ -1,0 +1,17 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "bento/ubuntu-20.04-arm64"
+  config.vm.hostname = "ubuntu"
+  config.vm.provider "vmware_desktop"
+  config.vm.network "public_network", ip: "192.168.1.7"
+
+  config.vm.provision "shell", inline: <<-SHELL
+    sudo apt-add-repository ppa:ansible/ansible
+    sudo apt update
+    sudo apt install ansible -y
+  SHELL
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.verbose = "v"
+    ansible.playbook = "playbook.yml"
+  end
+end

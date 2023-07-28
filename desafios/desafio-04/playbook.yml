@@ -1,0 +1,20 @@
+---
+- name: Install programs
+  hosts: all
+  become: true
+  tasks:
+    - name: Install essential packages
+      apt:
+        name:
+          - vim
+          - telnet
+          - curl
+          - unzip
+          - wget
+          - net-tools
+          - htop
+          - nmap
+        state: present
+    - name: Change hostname
+      hostname:
+        name: matheuslima
